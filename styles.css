@@ -1,0 +1,61 @@
+/* Week 6 Weather App — styles */
+:root{
+  --bg:#0f172a; --panel:#111827; --text:#e5e7eb; --muted:#94a3b8;
+  --brand:#38bdf8; --accent:#22c55e; --border:#1f2937; --shadow: 0 12px 30px rgba(0,0,0,.35);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial;
+  background: radial-gradient(1200px 600px at 20% -10%, #0b1220, transparent), linear-gradient(180deg,#0a0f1d,#0f172a);
+  color:var(--text); display:grid; place-items:center; padding:24px;
+}
+.app{ width:min(960px,100%); background:var(--panel); border:1px solid var(--border); border-radius:16px; box-shadow:var(--shadow); overflow:hidden;}
+
+.app__header{display:flex; justify-content:space-between; align-items:center; gap:12px; padding:16px 20px; border-bottom:1px solid var(--border)}
+.app__header h1{font-size:20px; margin:0}
+.unit-toggle{display:flex; gap:12px; align-items:center; background:#0b1220; border:1px solid var(--border); padding:6px 10px; border-radius:999px}
+.unit-toggle label{font-size:13px; color:var(--muted); cursor:pointer}
+.unit-toggle input{accent-color:var(--brand)}
+
+.controls{padding:14px 20px; border-bottom:1px solid var(--border)}
+#search-form{display:flex; gap:10px; flex-wrap:wrap}
+#query{flex:1 1 260px; background:#0b1220; color:var(--text); border:1px solid var(--border); border-radius:10px; padding:10px 12px; outline:none}
+.btn{background:var(--brand); color:#0b1220; border:none; border-radius:10px; padding:10px 14px; font-weight:600; cursor:pointer}
+.btn--ghost{background:transparent; color:var(--muted); border:1px solid var(--border)}
+.btn:disabled{opacity:.6; cursor:not-allowed}
+
+.suggestions{list-style:none; margin:8px 0 0; padding:0; display:grid; gap:6px}
+.suggestions li{background:#0b1220; border:1px solid var(--border); border-radius:10px; padding:10px 12px; cursor:pointer}
+.suggestions li:hover{border-color:#2a3346}
+
+.panels{display:grid; grid-template-columns:1fr; gap:16px; padding:16px 20px}
+.panel{background:#0b1220; border:1px solid var(--border); border-radius:14px; padding:14px}
+.current__header{display:flex; justify-content:space-between; align-items:center}
+.place{margin:0; font-size:20px}
+.time{color:var(--muted); font-size:13px}
+.current__content{display:grid; grid-template-columns:auto 1fr; gap:14px; align-items:center}
+.current__temp{font-size:56px; font-weight:700}
+.current__meta{display:grid; gap:6px}
+.row{display:flex; justify-content:space-between; gap:12px; color:var(--muted)}
+.summary{font-weight:600; color:var(--text)}
+
+.forecast h3{margin:0 0 10px 4px; font-size:16px; color:var(--muted)}
+.forecast__grid{display:grid; grid-template-columns:repeat(7,1fr); gap:8px}
+.card{background:#0a1220; border:1px solid var(--border); border-radius:12px; padding:10px; display:grid; gap:6px; text-align:center}
+.card .day{color:var(--muted); font-size:12px}
+.card .icon{font-size:20px}
+.card .hi{font-weight:700}
+.card .lo{color:var(--muted)}
+
+.app__footer{display:flex; justify-content:space-between; align-items:center; padding:12px 20px; border-top:1px solid var(--border)}
+.muted{color:var(--muted); font-size:12px}
+.status{font-size:12px}
+
+@media (max-width:720px){
+  .forecast__grid{grid-template-columns:repeat(4,1fr)}
+  .current__content{grid-template-columns:1fr}
+}
+/* a11y helper */
+.sr-only{position:absolute !important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Springboard Week 6 — Weather App</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app" aria-labelledby="title">
+    <header class="app__header">
+      <h1 id="title">Week 6 • Weather App</h1>
+      <div class="unit-toggle" role="group" aria-label="Units">
+        <input type="radio" id="metric" name="units" value="metric" checked>
+        <label for="metric">°C, km/h</label>
+        <input type="radio" id="imperial" name="units" value="imperial">
+        <label for="imperial">°F, mph</label>
+      </div>
+    </header>
+
+    <section class="controls" aria-label="Location search">
+      <form id="search-form" autocomplete="off">
+        <label class="sr-only" for="query">City or place</label>
+        <input id="query" type="text" placeholder="Search city (e.g., Chicago)" />
+        <button type="submit" class="btn">Search</button>
+        <button type="button" id="useMyLocation" class="btn btn--ghost">Use my location</button>
+      </form>
+      <ul id="suggestions" class="suggestions" role="listbox" aria-label="Matches"></ul>
+    </section>
+
+    <section class="panels">
+      <article class="panel current" aria-live="polite">
+        <div class="current__header">
+          <h2 class="place" id="placeName">–</h2>
+          <span class="time" id="asOf">–</span>
+        </div>
+        <div class="current__content">
+          <div class="current__temp" id="tempNow">--</div>
+          <div class="current__meta">
+            <div id="summary" class="summary">–</div>
+            <div class="row"><span>Feels like</span><strong id="feelsLike">–</strong></div>
+            <div class="row"><span>Humidity</span><strong id="humidity">–</strong></div>
+            <div class="row"><span>Wind</span><strong id="wind">–</strong></div>
+            <div class="row"><span>Precip</span><strong id="precip">–</strong></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel forecast" aria-live="polite">
+        <h3>7‑Day Forecast</h3>
+        <div id="forecastGrid" class="forecast__grid"></div>
+      </article>
+    </section>
+
+    <footer class="app__footer">
+      <span class="muted">Powered by Open‑Meteo • No API key required</span>
+      <span id="status" class="status" aria-live="polite"></span>
+    </footer>
+  </main>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
